@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
-
+require("dotenv").configure()
 // Connect to MongoDB
+const dbUrl = process.env.DATABASE_CONNECTION_STRING;
 mongoose
-  .connect("mongodb+srv://admin:W6PyEwrklahbgRzD@cluster0.lhcugcv.mongodb.net/")
+  .connect(dbUrl)
   // if I want to specify a databse just add it at the last 
   // for instanace => mongodb+srv://admin:W6PyEwrklahbgRzD@cluster0.lhcugcv.mongodb.net/database_name
   .then(() => console.log("Database connected successfully"))
